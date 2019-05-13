@@ -27,7 +27,6 @@ namespace Bertani
         Bitmap bmpBawangMerah = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\onion_icon.png"));
         Bitmap bmpGula = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\sugarcane_icon.png"));
         int halaman = 0;
-        bool Calling = true;
         //DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
 
         public Catatan()
@@ -84,24 +83,20 @@ namespace Bertani
             lahankuTambahForm.Show();
         }
 
-        public void GetLahan()
+        public async Task GetLahan()
         {
-            if (Calling)
+            KelasLahan newLahan;
+            listLahan = new List<KelasLahan>();
+            using (var db = new LahanModel())
             {
-                Calling = false;
-                KelasLahan newLahan;
-                listLahan = new List<KelasLahan>();
-                using (var db = new LahanModel())
+                var query = from l in db.Lahans select l;
+                foreach (var item in query)
                 {
-                    var query = from l in db.Lahans select l;
-                    foreach (var item in query)
-                    {
-                        newLahan = new KelasLahan(item.Id, item.Komoditas, item.LuasLahan, item.JumlahTanaman, item.TanggalTanam, item.HargaBibit, item.HargaPerawatan);
-                        listLahan.Add(newLahan);
-                    }
+                    newLahan = new KelasLahan(item.Id, item.Komoditas, item.LuasLahan, item.JumlahTanaman, item.TanggalTanam, item.HargaBibit, item.HargaPerawatan);
+                    listLahan.Add(newLahan);
                 }
-                CheckLahan(halaman);
             }
+            CheckLahan(halaman);
         }
         private void CheckLahan(int halaman)
         {

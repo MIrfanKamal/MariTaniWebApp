@@ -79,3 +79,7 @@ D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.c
 D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.csproj.CopyComplete
 D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.exe
 D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.pdb
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\NewsAPI.dll
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\NewsAPI.xml
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\Newtonsoft.Json.xml
