@@ -56,3 +56,26 @@ E:\nickeennn\Bertani3\Bertani\obj\Debug\Bertani.csproj.CoreCompileInputs.cache
 E:\nickeennn\Bertani3\Bertani\obj\Debug\Bertani.csproj.CopyComplete
 E:\nickeennn\Bertani3\Bertani\obj\Debug\Bertani.exe
 E:\nickeennn\Bertani3\Bertani\obj\Debug\Bertani.pdb
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\DaftarLahan.mdf
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\DaftarLahan_log.ldf
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\Bertani.exe.config
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\Bertani.exe
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\Bertani.pdb
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\EntityFramework.dll
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\EntityFramework.xml
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.csprojAssemblyReference.cache
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.Catatan.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.formMain.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.HargaPasar.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.Home.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.LahankuTambahForm.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.Properties.Resources.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.TentangKami.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.TipsAndTrick.resources
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.csproj.GenerateResource.cache
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.csproj.CoreCompileInputs.cache
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.csproj.CopyComplete
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.exe
+D:\Documents\UGM\Semester 2\Tugas\PBO\MariTaniWebApp\Bertani\obj\Debug\Bertani.pdb

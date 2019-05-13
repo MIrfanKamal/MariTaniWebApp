@@ -33,7 +33,7 @@ namespace Bertani
         public Catatan()
         {
             InitializeComponent();
-            GetLahan();
+            //GetLahan();
             listLabelKomoditas = new List<Label>() { lblKomoditas1, lblKomoditas2, lblKomoditas3, lblKomoditas4 };
             listLabelLuasLahan = new List<Label>() { lblLuasLahan1, lblLuasTanam2, lblLuasTanam3, lblLuasTanam4 };
             listLabelJumlahTanaman = new List<Label>() { lblJumlahTanaman1, lblJumlahTanaman2, lblJumlahTanaman3, lblJumlahTanaman4 };

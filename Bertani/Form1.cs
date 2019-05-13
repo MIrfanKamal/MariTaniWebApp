@@ -34,7 +34,7 @@ namespace Bertani
             sidePanel.Height = btnHome.Height;
             home.BringToFront();
             catatan.GetLahan();
-            MessageBox.Show("Halo");
+            //MessageBox.Show("Halo");
         }
 
         private void btnHome_Click(object sender, EventArgs e)
