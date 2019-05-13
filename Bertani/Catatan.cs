@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Bertani
 {
@@ -20,11 +21,11 @@ namespace Bertani
         List<Button> listBtnEdit;
         List<Button> listBtnHapus;
         List<PictureBox> listPb;
-        Bitmap bmpBeras = new Bitmap(@"E:\nickeennn\Bertani3\Icon\rice_icon.png");
-        Bitmap bmpCabai = new Bitmap(@"E:\nickeennn\Bertani3\Icon\chilli_icon.png");
-        Bitmap bmpBawangPutih = new Bitmap(@"E:\nickeennn\Bertani3\Icon\garlic_icon.png");
-        Bitmap bmpBawangMerah = new Bitmap(@"E:\nickeennn\Bertani3\Icon\onion_icon.png");
-        Bitmap bmpGula = new Bitmap(@"E:\nickeennn\Bertani3\Icon\sugarcane_icon.png");
+        Bitmap bmpBeras = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\rice_icon.png"));
+        Bitmap bmpCabai = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\chilli_icon.png"));
+        Bitmap bmpBawangPutih = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\garlic_icon.png"));
+        Bitmap bmpBawangMerah = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\onion_icon.png"));
+        Bitmap bmpGula = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\sugarcane_icon.png"));
         int halaman = 0;
         bool Calling = true;
         //DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
@@ -32,7 +33,7 @@ namespace Bertani
         public Catatan()
         {
             InitializeComponent();
-            //GetLahan();
+            GetLahan();
             listLabelKomoditas = new List<Label>() { lblKomoditas1, lblKomoditas2, lblKomoditas3, lblKomoditas4 };
             listLabelLuasLahan = new List<Label>() { lblLuasLahan1, lblLuasTanam2, lblLuasTanam3, lblLuasTanam4 };
             listLabelJumlahTanaman = new List<Label>() { lblJumlahTanaman1, lblJumlahTanaman2, lblJumlahTanaman3, lblJumlahTanaman4 };
