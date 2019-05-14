@@ -46,14 +46,14 @@ namespace Bertani
                     {
                         pbDisplay = new PictureBox();
                         pbDisplay.Size = new Size(100, 100);
-                        pbDisplay.Location = new Point(15, 15 + 110 * i);
+                        pbDisplay.Location = new Point(15, 15 + 140 * i);
                         pbDisplay.Load(article.UrlToImage);
                         pbDisplay.SizeMode = PictureBoxSizeMode.StretchImage;
                         pnNews.Controls.Add(pbDisplay);
                         lblJudul = new LinkLabel();
                         lblJudul.AutoSize = false;
                         lblJudul.Size = new Size(700, 30);
-                        lblJudul.Location = new Point(120, 15 + 110 * i);
+                        lblJudul.Location = new Point(120, 15 + 140 * i);
                         lblJudul.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
                         lblJudul.Text = article.Title;
                         lblJudul.LinkClicked += LblJudul_LinkClicked;
@@ -62,14 +62,14 @@ namespace Bertani
                         listUrl.Add(article.Url);
                         pnNews.Controls.Add(lblJudul);
                         lblAuthor = new Label();
-                        lblAuthor.Location = new Point(120, 50 + 110 * i);
+                        lblAuthor.Location = new Point(120, 50 + 140 * i);
                         lblAuthor.AutoSize = true;
                         lblAuthor.Text = "Penulis : " + article.Author + " Tanggal : "+article.PublishedAt;
                         pnNews.Controls.Add(lblAuthor);
                         lblDescription = new Label();
                         lblDescription.AutoSize = false;
-                        lblDescription.Size = new Size(700, 39);
-                        lblDescription.Location = new Point(120, 75 + 110 * i);
+                        lblDescription.Size = new Size(700, 52);
+                        lblDescription.Location = new Point(120, 75 + 140 * i);
                         lblDescription.Text = article.Description;
                         pnNews.Controls.Add(lblDescription);
                         i++;
