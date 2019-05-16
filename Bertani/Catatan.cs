@@ -21,6 +21,7 @@ namespace Bertani
         List<Button> listBtnEdit;
         List<Button> listBtnHapus;
         List<PictureBox> listPb;
+        List<int> listID;
         Bitmap bmpBeras = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\rice_icon.png"));
         Bitmap bmpCabai = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\chilli_icon.png"));
         Bitmap bmpBawangPutih = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\garlic_icon.png"));
@@ -44,13 +45,13 @@ namespace Bertani
             //AddNewLahan("Beras", 200, 100, date1, 200, 100);
             //AddNewLahan("Beras", 100, 100, date1, 100, 100);
         }
-        public void AddNewLahan(string komoditas, decimal luasLahan, int jumlahTanaman, DateTime tanggal, decimal? hargaBibit, decimal? hargaPerawatan)
+        public void AddNewLahan(int ID,string komoditas, decimal luasLahan, int jumlahTanaman, DateTime tanggal, decimal? hargaBibit, decimal? hargaPerawatan)
         {
             using(var db = new LahanModel())
             {
                 Lahan lahan = new Lahan
                 {
-                    Id = listLahan.Count,
+                    Id = ID,
                     Komoditas = komoditas,
                     LuasLahan = luasLahan,
                     JumlahTanaman = jumlahTanaman,
@@ -62,8 +63,9 @@ namespace Bertani
                 db.SaveChanges();
                 MessageBox.Show("Lahan berhasil ditambah");
             }
+            listID.Add(ID);
             //MessageBox.Show(listLahan.Count.ToString());
-            KelasLahan newLahan = new KelasLahan(listLahan.Count, komoditas, luasLahan, jumlahTanaman, tanggal, hargaBibit, hargaPerawatan);
+            KelasLahan newLahan = new KelasLahan(ID, komoditas, luasLahan, jumlahTanaman, tanggal, hargaBibit, hargaPerawatan);
             listLahan.Add(newLahan);
             CheckLahan(halaman);
         }
@@ -87,16 +89,40 @@ namespace Bertani
         {
             KelasLahan newLahan;
             listLahan = new List<KelasLahan>();
+            listID = new List<int>();
             using (var db = new LahanModel())
             {
                 var query = from l in db.Lahans select l;
                 foreach (var item in query)
                 {
+                    listID.Add(item.Id);
                     newLahan = new KelasLahan(item.Id, item.Komoditas, item.LuasLahan, item.JumlahTanaman, item.TanggalTanam, item.HargaBibit, item.HargaPerawatan);
                     listLahan.Add(newLahan);
                 }
             }
             CheckLahan(halaman);
+        }
+        public int getID()
+        {
+            int returnID = 0;
+            if (listID.Count != 0)
+            {
+                if (listID.Max() != listID.Count - 1)
+                {
+                    listID.Sort();
+                    for (int i = 0; i < listID.Count; i++)
+                    {
+                        if (listID[i] != i)
+                        {
+                            returnID = i;
+                            break;
+                        }
+                    }
+                }
+                else
+                    returnID = listID.Max()+1;
+            }
+            return returnID;
         }
         private void CheckLahan(int halaman)
         {
@@ -217,6 +243,7 @@ namespace Bertani
                 db.Lahans.RemoveRange(db.Lahans.Where(item => item.Id == i));
                 db.SaveChanges();
             }
+            listID.Remove(i);
             listLahan.RemoveAt(i);
             CheckLahan(halaman);
         }

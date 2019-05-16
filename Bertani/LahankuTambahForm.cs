@@ -85,7 +85,7 @@ namespace Bertani
         private void btnTambah_Click(object sender, EventArgs e)
         {
             if (mode == Mode.Insert)
-                catatan.AddNewLahan(cbKomoditas.Text, Convert.ToDecimal(tbLuasLahan.Text), int.Parse(tbJumlahTanaman.Text), dtpTanggal.Value, Convert.ToDecimal(tbHargaBibit.Text), Convert.ToDecimal(tbBiayaPerawatan.Text));
+                catatan.AddNewLahan(catatan.getID(),cbKomoditas.Text, Convert.ToDecimal(tbLuasLahan.Text), int.Parse(tbJumlahTanaman.Text), dtpTanggal.Value, Convert.ToDecimal(tbHargaBibit.Text), Convert.ToDecimal(tbBiayaPerawatan.Text));
             else if (mode == Mode.Edit)
             {
                 EditData(i);
