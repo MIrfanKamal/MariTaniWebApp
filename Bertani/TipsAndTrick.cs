@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
 
 namespace Bertani
 {
@@ -17,24 +19,40 @@ namespace Bertani
             InitializeComponent();
         }
 
-        private void TipsAndTrick_Load(object sender, EventArgs e)
+        private void btnPupuk_Click(object sender, EventArgs e)
         {
-
+            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\pupuk.pdf"));
+            Process.Start(startInfo);
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void btnTanah_Click(object sender, EventArgs e)
         {
-
+            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\tanah.pdf"));
+            Process.Start(startInfo);
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void btnIrigasi_Click(object sender, EventArgs e)
         {
-
+            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\irigasi.pdf"));
+            Process.Start(startInfo);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnSanitasi_Click(object sender, EventArgs e)
         {
+            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\sanitasi.pdf"));
+            Process.Start(startInfo);
+        }
 
+        private void btnHama_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\hama.pdf"));
+            Process.Start(startInfo);
+        }
+
+        private void btnAsuransi_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\asuransi.pdf"));
+            Process.Start(startInfo);
         }
     }
 }
