@@ -24,7 +24,6 @@ namespace Bertani
         }
         private void GetData(string komoditas,string daerah)
         {
-            //MessageBox.Show("Masuk 2");
             listWaktu.Clear();
             listHarga.Clear();
             using (XmlReader reader = XmlReader.Create(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Data\" + komoditas + ".xml")))
@@ -70,7 +69,6 @@ namespace Bertani
                                 reader.Skip();
                             }
                         }
-
                     }
                 }
             }

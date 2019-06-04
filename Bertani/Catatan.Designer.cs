@@ -40,7 +40,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblLuasLahan1 = new System.Windows.Forms.Label();
-            this.lblJumlahTanaman1 = new System.Windows.Forms.Label();
+            this.lblHasilperHa1 = new System.Windows.Forms.Label();
             this.lblTanggalTanam1 = new System.Windows.Forms.Label();
             this.lblEstimasiPanen1 = new System.Windows.Forms.Label();
             this.lblEstimasiKeuntungan1 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.lblEstimasiKeuntungan2 = new System.Windows.Forms.Label();
             this.lblEstimasiPanen2 = new System.Windows.Forms.Label();
             this.lblTanggalTanam2 = new System.Windows.Forms.Label();
-            this.lblJumlahTanaman2 = new System.Windows.Forms.Label();
+            this.lblHasilperHa2 = new System.Windows.Forms.Label();
             this.lblLuasTanam2 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.lblEstimasiKeuntungan3 = new System.Windows.Forms.Label();
             this.lblEstimasiPanen3 = new System.Windows.Forms.Label();
             this.lblTanggalTanam3 = new System.Windows.Forms.Label();
-            this.lblJumlahTanaman3 = new System.Windows.Forms.Label();
+            this.lblHasilperHa3 = new System.Windows.Forms.Label();
             this.lblLuasTanam3 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.lblEstimasiKeuntungan4 = new System.Windows.Forms.Label();
             this.lblEstimasiPanen4 = new System.Windows.Forms.Label();
             this.lblTanggalTanam4 = new System.Windows.Forms.Label();
-            this.lblJumlahTanaman4 = new System.Windows.Forms.Label();
+            this.lblHasilperHa4 = new System.Windows.Forms.Label();
             this.lblLuasTanam4 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -165,9 +165,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(99, 117);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 15);
+            this.label4.Size = new System.Drawing.Size(102, 15);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Jumlah Tanaman";
+            this.label4.Text = "Target per Hektar";
             // 
             // label5
             // 
@@ -209,15 +209,15 @@
             this.lblLuasLahan1.TabIndex = 8;
             this.lblLuasLahan1.Text = ": -";
             // 
-            // lblJumlahTanaman1
+            // lblHasilperHa1
             // 
-            this.lblJumlahTanaman1.AutoSize = true;
-            this.lblJumlahTanaman1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJumlahTanaman1.Location = new System.Drawing.Point(215, 117);
-            this.lblJumlahTanaman1.Name = "lblJumlahTanaman1";
-            this.lblJumlahTanaman1.Size = new System.Drawing.Size(17, 15);
-            this.lblJumlahTanaman1.TabIndex = 9;
-            this.lblJumlahTanaman1.Text = ": -";
+            this.lblHasilperHa1.AutoSize = true;
+            this.lblHasilperHa1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHasilperHa1.Location = new System.Drawing.Point(215, 117);
+            this.lblHasilperHa1.Name = "lblHasilperHa1";
+            this.lblHasilperHa1.Size = new System.Drawing.Size(17, 15);
+            this.lblHasilperHa1.TabIndex = 9;
+            this.lblHasilperHa1.Text = ": -";
             // 
             // lblTanggalTanam1
             // 
@@ -327,15 +327,15 @@
             this.lblTanggalTanam2.TabIndex = 24;
             this.lblTanggalTanam2.Text = ": -";
             // 
-            // lblJumlahTanaman2
+            // lblHasilperHa2
             // 
-            this.lblJumlahTanaman2.AutoSize = true;
-            this.lblJumlahTanaman2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJumlahTanaman2.Location = new System.Drawing.Point(215, 204);
-            this.lblJumlahTanaman2.Name = "lblJumlahTanaman2";
-            this.lblJumlahTanaman2.Size = new System.Drawing.Size(17, 15);
-            this.lblJumlahTanaman2.TabIndex = 23;
-            this.lblJumlahTanaman2.Text = ": -";
+            this.lblHasilperHa2.AutoSize = true;
+            this.lblHasilperHa2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHasilperHa2.Location = new System.Drawing.Point(215, 204);
+            this.lblHasilperHa2.Name = "lblHasilperHa2";
+            this.lblHasilperHa2.Size = new System.Drawing.Size(17, 15);
+            this.lblHasilperHa2.TabIndex = 23;
+            this.lblHasilperHa2.Text = ": -";
             // 
             // lblLuasTanam2
             // 
@@ -383,9 +383,9 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.Location = new System.Drawing.Point(99, 204);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(104, 15);
+            this.label21.Size = new System.Drawing.Size(102, 15);
             this.label21.TabIndex = 18;
-            this.label21.Text = "Jumlah Tanaman";
+            this.label21.Text = "Target per Hektar";
             // 
             // label22
             // 
@@ -470,15 +470,15 @@
             this.lblTanggalTanam3.TabIndex = 38;
             this.lblTanggalTanam3.Text = ": -";
             // 
-            // lblJumlahTanaman3
+            // lblHasilperHa3
             // 
-            this.lblJumlahTanaman3.AutoSize = true;
-            this.lblJumlahTanaman3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJumlahTanaman3.Location = new System.Drawing.Point(215, 292);
-            this.lblJumlahTanaman3.Name = "lblJumlahTanaman3";
-            this.lblJumlahTanaman3.Size = new System.Drawing.Size(17, 15);
-            this.lblJumlahTanaman3.TabIndex = 37;
-            this.lblJumlahTanaman3.Text = ": -";
+            this.lblHasilperHa3.AutoSize = true;
+            this.lblHasilperHa3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHasilperHa3.Location = new System.Drawing.Point(215, 292);
+            this.lblHasilperHa3.Name = "lblHasilperHa3";
+            this.lblHasilperHa3.Size = new System.Drawing.Size(17, 15);
+            this.lblHasilperHa3.TabIndex = 37;
+            this.lblHasilperHa3.Text = ": -";
             // 
             // lblLuasTanam3
             // 
@@ -526,9 +526,9 @@
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(99, 292);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(104, 15);
+            this.label32.Size = new System.Drawing.Size(102, 15);
             this.label32.TabIndex = 32;
-            this.label32.Text = "Jumlah Tanaman";
+            this.label32.Text = "Target per Hektar";
             // 
             // label33
             // 
@@ -613,15 +613,15 @@
             this.lblTanggalTanam4.TabIndex = 52;
             this.lblTanggalTanam4.Text = ": -";
             // 
-            // lblJumlahTanaman4
+            // lblHasilperHa4
             // 
-            this.lblJumlahTanaman4.AutoSize = true;
-            this.lblJumlahTanaman4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJumlahTanaman4.Location = new System.Drawing.Point(215, 377);
-            this.lblJumlahTanaman4.Name = "lblJumlahTanaman4";
-            this.lblJumlahTanaman4.Size = new System.Drawing.Size(17, 15);
-            this.lblJumlahTanaman4.TabIndex = 51;
-            this.lblJumlahTanaman4.Text = ": -";
+            this.lblHasilperHa4.AutoSize = true;
+            this.lblHasilperHa4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHasilperHa4.Location = new System.Drawing.Point(215, 377);
+            this.lblHasilperHa4.Name = "lblHasilperHa4";
+            this.lblHasilperHa4.Size = new System.Drawing.Size(17, 15);
+            this.lblHasilperHa4.TabIndex = 51;
+            this.lblHasilperHa4.Text = ": -";
             // 
             // lblLuasTanam4
             // 
@@ -669,9 +669,9 @@
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(99, 377);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(104, 15);
+            this.label43.Size = new System.Drawing.Size(102, 15);
             this.label43.TabIndex = 46;
-            this.label43.Text = "Jumlah Tanaman";
+            this.label43.Text = "Target per Hektar";
             // 
             // label44
             // 
@@ -735,7 +735,7 @@
             this.Controls.Add(this.lblEstimasiKeuntungan4);
             this.Controls.Add(this.lblEstimasiPanen4);
             this.Controls.Add(this.lblTanggalTanam4);
-            this.Controls.Add(this.lblJumlahTanaman4);
+            this.Controls.Add(this.lblHasilperHa4);
             this.Controls.Add(this.lblLuasTanam4);
             this.Controls.Add(this.label40);
             this.Controls.Add(this.label41);
@@ -749,7 +749,7 @@
             this.Controls.Add(this.lblEstimasiKeuntungan3);
             this.Controls.Add(this.lblEstimasiPanen3);
             this.Controls.Add(this.lblTanggalTanam3);
-            this.Controls.Add(this.lblJumlahTanaman3);
+            this.Controls.Add(this.lblHasilperHa3);
             this.Controls.Add(this.lblLuasTanam3);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label30);
@@ -763,7 +763,7 @@
             this.Controls.Add(this.lblEstimasiKeuntungan2);
             this.Controls.Add(this.lblEstimasiPanen2);
             this.Controls.Add(this.lblTanggalTanam2);
-            this.Controls.Add(this.lblJumlahTanaman2);
+            this.Controls.Add(this.lblHasilperHa2);
             this.Controls.Add(this.lblLuasTanam2);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label19);
@@ -777,7 +777,7 @@
             this.Controls.Add(this.lblEstimasiKeuntungan1);
             this.Controls.Add(this.lblEstimasiPanen1);
             this.Controls.Add(this.lblTanggalTanam1);
-            this.Controls.Add(this.lblJumlahTanaman1);
+            this.Controls.Add(this.lblHasilperHa1);
             this.Controls.Add(this.lblLuasLahan1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -813,7 +813,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblLuasLahan1;
-        private System.Windows.Forms.Label lblJumlahTanaman1;
+        private System.Windows.Forms.Label lblHasilperHa1;
         private System.Windows.Forms.Label lblTanggalTanam1;
         private System.Windows.Forms.Label lblEstimasiPanen1;
         private System.Windows.Forms.Label lblEstimasiKeuntungan1;
@@ -824,7 +824,7 @@
         private System.Windows.Forms.Label lblEstimasiKeuntungan2;
         private System.Windows.Forms.Label lblEstimasiPanen2;
         private System.Windows.Forms.Label lblTanggalTanam2;
-        private System.Windows.Forms.Label lblJumlahTanaman2;
+        private System.Windows.Forms.Label lblHasilperHa2;
         private System.Windows.Forms.Label lblLuasTanam2;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -838,7 +838,7 @@
         private System.Windows.Forms.Label lblEstimasiKeuntungan3;
         private System.Windows.Forms.Label lblEstimasiPanen3;
         private System.Windows.Forms.Label lblTanggalTanam3;
-        private System.Windows.Forms.Label lblJumlahTanaman3;
+        private System.Windows.Forms.Label lblHasilperHa3;
         private System.Windows.Forms.Label lblLuasTanam3;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
@@ -852,7 +852,7 @@
         private System.Windows.Forms.Label lblEstimasiKeuntungan4;
         private System.Windows.Forms.Label lblEstimasiPanen4;
         private System.Windows.Forms.Label lblTanggalTanam4;
-        private System.Windows.Forms.Label lblJumlahTanaman4;
+        private System.Windows.Forms.Label lblHasilperHa4;
         private System.Windows.Forms.Label lblLuasTanam4;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;

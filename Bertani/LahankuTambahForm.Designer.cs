@@ -44,12 +44,16 @@
             this.lblEstimasiKeuntungan = new System.Windows.Forms.Label();
             this.cbKomoditas = new System.Windows.Forms.ComboBox();
             this.tbLuasLahan = new System.Windows.Forms.TextBox();
-            this.tbJumlahTanaman = new System.Windows.Forms.TextBox();
+            this.tbHasilperHektar = new System.Windows.Forms.TextBox();
             this.tbHargaBibit = new System.Windows.Forms.TextBox();
             this.dtpTanggal = new System.Windows.Forms.DateTimePicker();
             this.tbBiayaPerawatan = new System.Windows.Forms.TextBox();
             this.btnHitung = new System.Windows.Forms.Button();
             this.btnTambah = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbDaerah = new System.Windows.Forms.ComboBox();
             this.panelControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,9 +118,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(112, 16);
+            this.label3.Size = new System.Drawing.Size(114, 16);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Jumlah Tanaman";
+            this.label3.Text = "Target per Hektar";
             // 
             // label4
             // 
@@ -152,7 +156,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(12, 243);
+            this.label7.Location = new System.Drawing.Point(12, 259);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 16);
             this.label7.TabIndex = 7;
@@ -162,7 +166,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 269);
+            this.label8.Location = new System.Drawing.Point(12, 285);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(132, 16);
             this.label8.TabIndex = 8;
@@ -172,7 +176,7 @@
             // 
             this.lblEstimasiPanen.AutoSize = true;
             this.lblEstimasiPanen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstimasiPanen.Location = new System.Drawing.Point(157, 243);
+            this.lblEstimasiPanen.Location = new System.Drawing.Point(157, 259);
             this.lblEstimasiPanen.Name = "lblEstimasiPanen";
             this.lblEstimasiPanen.Size = new System.Drawing.Size(12, 16);
             this.lblEstimasiPanen.TabIndex = 9;
@@ -182,7 +186,7 @@
             // 
             this.lblEstimasiKeuntungan.AutoSize = true;
             this.lblEstimasiKeuntungan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstimasiKeuntungan.Location = new System.Drawing.Point(157, 269);
+            this.lblEstimasiKeuntungan.Location = new System.Drawing.Point(157, 285);
             this.lblEstimasiKeuntungan.Name = "lblEstimasiKeuntungan";
             this.lblEstimasiKeuntungan.Size = new System.Drawing.Size(12, 16);
             this.lblEstimasiKeuntungan.TabIndex = 10;
@@ -207,15 +211,15 @@
             // 
             this.tbLuasLahan.Location = new System.Drawing.Point(160, 71);
             this.tbLuasLahan.Name = "tbLuasLahan";
-            this.tbLuasLahan.Size = new System.Drawing.Size(158, 20);
+            this.tbLuasLahan.Size = new System.Drawing.Size(138, 20);
             this.tbLuasLahan.TabIndex = 12;
             // 
-            // tbJumlahTanaman
+            // tbHasilperHektar
             // 
-            this.tbJumlahTanaman.Location = new System.Drawing.Point(160, 101);
-            this.tbJumlahTanaman.Name = "tbJumlahTanaman";
-            this.tbJumlahTanaman.Size = new System.Drawing.Size(158, 20);
-            this.tbJumlahTanaman.TabIndex = 13;
+            this.tbHasilperHektar.Location = new System.Drawing.Point(160, 101);
+            this.tbHasilperHektar.Name = "tbHasilperHektar";
+            this.tbHasilperHektar.Size = new System.Drawing.Size(138, 20);
+            this.tbHasilperHektar.TabIndex = 13;
             // 
             // tbHargaBibit
             // 
@@ -247,6 +251,7 @@
             this.btnHitung.TabIndex = 17;
             this.btnHitung.Text = "Hitung";
             this.btnHitung.UseVisualStyleBackColor = false;
+            this.btnHitung.Click += new System.EventHandler(this.btnHitung_Click);
             // 
             // btnTambah
             // 
@@ -259,18 +264,66 @@
             this.btnTambah.UseVisualStyleBackColor = false;
             this.btnTambah.Click += new System.EventHandler(this.btnTambah_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(303, 75);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(39, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Hektar";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(303, 105);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(26, 13);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Ton";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(12, 232);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(48, 16);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Lokasi";
+            // 
+            // cbDaerah
+            // 
+            this.cbDaerah.FormattingEnabled = true;
+            this.cbDaerah.Items.AddRange(new object[] {
+            "Banten",
+            "Jawa Barat",
+            "DKI Jakarta",
+            "Jawa Tengah",
+            "DI Yogyakarta",
+            "Jawa Timur",
+            "Bali"});
+            this.cbDaerah.Location = new System.Drawing.Point(160, 227);
+            this.cbDaerah.Name = "cbDaerah";
+            this.cbDaerah.Size = new System.Drawing.Size(158, 21);
+            this.cbDaerah.TabIndex = 22;
+            // 
             // LahankuTambahForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(350, 370);
+            this.Controls.Add(this.cbDaerah);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnTambah);
             this.Controls.Add(this.btnHitung);
             this.Controls.Add(this.tbBiayaPerawatan);
             this.Controls.Add(this.dtpTanggal);
             this.Controls.Add(this.tbHargaBibit);
-            this.Controls.Add(this.tbJumlahTanaman);
+            this.Controls.Add(this.tbHasilperHektar);
             this.Controls.Add(this.tbLuasLahan);
             this.Controls.Add(this.cbKomoditas);
             this.Controls.Add(this.lblEstimasiKeuntungan);
@@ -312,12 +365,16 @@
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.ComboBox cbKomoditas;
         private System.Windows.Forms.TextBox tbLuasLahan;
-        private System.Windows.Forms.TextBox tbJumlahTanaman;
+        private System.Windows.Forms.TextBox tbHasilperHektar;
         private System.Windows.Forms.TextBox tbHargaBibit;
         private System.Windows.Forms.DateTimePicker dtpTanggal;
         private System.Windows.Forms.TextBox tbBiayaPerawatan;
         private System.Windows.Forms.Button btnHitung;
         private System.Windows.Forms.Button btnTambah;
         private System.Windows.Forms.Label lblJudul;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbDaerah;
     }
 }

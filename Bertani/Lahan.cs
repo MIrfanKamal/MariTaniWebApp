@@ -18,12 +18,16 @@ namespace Bertani
 
         public decimal LuasLahan { get; set; }
 
-        public int JumlahTanaman { get; set; }
+        public decimal HasilperHa { get; set; }
 
         public DateTime TanggalTanam { get; set; }
 
-        public decimal? HargaBibit { get; set; }
+        public decimal HargaBibit { get; set; }
 
-        public decimal? HargaPerawatan { get; set; }
+        public decimal HargaPerawatan { get; set; }
+
+        [Required]
+        [StringLength(20)]
+        public string Lokasi { get; set; }
     }
 }

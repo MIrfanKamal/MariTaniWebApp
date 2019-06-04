@@ -45,7 +45,7 @@ namespace Bertani
             lblJudul.Text = "Tambah Lahan";
             btnTambah.Text = "Tambah";
         }
-        public LahankuTambahForm(int i,string komoditas, decimal luasLahan, int jumlahTanaman, DateTime tanggal, decimal? hargaBibit, decimal? hargaPerawatan,Catatan catatan)
+        public LahankuTambahForm(int i,string komoditas, decimal luasLahan, decimal hasilperHa, DateTime tanggal, decimal hargaBibit, decimal hargaPerawatan,Catatan catatan)
         {
             InitializeComponent();
             this.catatan = catatan;
@@ -55,7 +55,7 @@ namespace Bertani
             this.i = i;
             cbKomoditas.Text = komoditas;
             tbLuasLahan.Text = luasLahan.ToString();
-            tbJumlahTanaman.Text = jumlahTanaman.ToString();
+            tbHasilperHektar.Text = hasilperHa.ToString();
             dtpTanggal.Value = tanggal;
             tbHargaBibit.Text = hargaBibit.ToString();
             tbBiayaPerawatan.Text = hargaPerawatan.ToString();
@@ -66,32 +66,54 @@ namespace Bertani
         }
         private void EditData(int i)
         {
-            using(var db = new LahanModel())
+            if (cbKomoditas.Text != "" && tbLuasLahan.Text != "" && tbHasilperHektar.Text != "" && tbHargaBibit.Text != "" && tbBiayaPerawatan.Text != "" && cbDaerah.Text != "")
             {
-                var result = db.Lahans.SingleOrDefault(k => k.Id == i);
-                if (result != null)
+                using (var db = new LahanModel())
                 {
-                    result.Komoditas = cbKomoditas.Text;
-                    result.LuasLahan = Convert.ToDecimal(tbLuasLahan.Text);
-                    result.JumlahTanaman = int.Parse(tbJumlahTanaman.Text);
-                    result.TanggalTanam = dtpTanggal.Value;
-                    result.HargaBibit = Convert.ToDecimal(tbHargaBibit.Text);
-                    result.HargaPerawatan = Convert.ToDecimal(tbBiayaPerawatan.Text);
-                    db.SaveChanges();
-                    MessageBox.Show("Berhasil diperbaharui");
+                    var result = db.Lahans.SingleOrDefault(k => k.Id == i);
+                    if (result != null)
+                    {
+                        result.Komoditas = cbKomoditas.Text;
+                        result.LuasLahan = Convert.ToDecimal(tbLuasLahan.Text);
+                        result.HasilperHa = int.Parse(tbHasilperHektar.Text);
+                        result.TanggalTanam = dtpTanggal.Value;
+                        result.HargaBibit = Convert.ToDecimal(tbHargaBibit.Text);
+                        result.HargaPerawatan = Convert.ToDecimal(tbBiayaPerawatan.Text);
+                        result.Lokasi = cbDaerah.Text;
+                        db.SaveChanges();
+                        MessageBox.Show("Berhasil diperbaharui");
+                    }
                 }
             }
+            else
+                MessageBox.Show("Ada bagian yang kosong!");
         }
         private void btnTambah_Click(object sender, EventArgs e)
         {
-            if (mode == Mode.Insert)
-                catatan.AddNewLahan(catatan.getID(),cbKomoditas.Text, Convert.ToDecimal(tbLuasLahan.Text), int.Parse(tbJumlahTanaman.Text), dtpTanggal.Value, Convert.ToDecimal(tbHargaBibit.Text), Convert.ToDecimal(tbBiayaPerawatan.Text));
-            else if (mode == Mode.Edit)
+            if (cbKomoditas.Text != "" && tbLuasLahan.Text != "" && tbHasilperHektar.Text != "" && tbHargaBibit.Text != "" && tbBiayaPerawatan.Text != "" && cbDaerah.Text != "")
             {
-                EditData(i);
-                catatan.EditLahan(i, cbKomoditas.Text, Convert.ToDecimal(tbLuasLahan.Text), int.Parse(tbJumlahTanaman.Text), dtpTanggal.Value, Convert.ToDecimal(tbHargaBibit.Text), Convert.ToDecimal(tbBiayaPerawatan.Text));
-            }    
-            this.Close();
+                if (mode == Mode.Insert)
+                    catatan.AddNewLahan(catatan.getID(), cbKomoditas.Text, Convert.ToDecimal(tbLuasLahan.Text), Convert.ToDecimal(tbHasilperHektar.Text), dtpTanggal.Value, Convert.ToDecimal(tbHargaBibit.Text), Convert.ToDecimal(tbBiayaPerawatan.Text), cbDaerah.Text);
+                else if (mode == Mode.Edit)
+                {
+                    EditData(i);
+                    catatan.EditLahan(i, cbKomoditas.Text, Convert.ToDecimal(tbLuasLahan.Text), Convert.ToDecimal(tbHasilperHektar.Text), dtpTanggal.Value, Convert.ToDecimal(tbHargaBibit.Text), Convert.ToDecimal(tbBiayaPerawatan.Text), cbDaerah.Text);
+                }
+                this.Close();
+            }
+            else
+                MessageBox.Show("Ada bagian yang kosong!");
+        }
+
+        private void btnHitung_Click(object sender, EventArgs e)
+        {
+            if (cbKomoditas.Text != "" && tbLuasLahan.Text != "" && tbHasilperHektar.Text != "" && tbHargaBibit.Text != "" && tbBiayaPerawatan.Text != "" && cbDaerah.Text != "")
+            {
+                lblEstimasiPanen.Text = KelasLahan.HitungEstimasiPanen(dtpTanggal.Value,cbKomoditas.Text).ToLongDateString();
+                lblEstimasiKeuntungan.Text = "Rp "+KelasLahan.HitungEstimasiKeuntungan(cbKomoditas.Text, Convert.ToDecimal(tbLuasLahan.Text), Convert.ToDecimal(tbHasilperHektar.Text), Convert.ToDecimal(tbHargaBibit.Text), Convert.ToDecimal(tbBiayaPerawatan.Text), cbDaerah.Text).ToString();
+            }
+            else
+                MessageBox.Show("Ada bagian yang kosong!");
         }
     }
 }

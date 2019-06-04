@@ -16,8 +16,10 @@ namespace Bertani
         List<KelasLahan> listLahan;
         List<Label> listLabelKomoditas;
         List<Label> listLabelLuasLahan;
-        List<Label> listLabelJumlahTanaman;
+        List<Label> listLabelHasilperHa;
         List<Label> listLabelTanggalTanam;
+        List<Label> listLabelEstimasiPanen;
+        List<Label> listLabelEstimasiKeuntungan;
         List<Button> listBtnEdit;
         List<Button> listBtnHapus;
         List<PictureBox> listPb;
@@ -28,24 +30,21 @@ namespace Bertani
         Bitmap bmpBawangMerah = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\onion_icon.png"));
         Bitmap bmpGula = new Bitmap(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Icon\sugarcane_icon.png"));
         int halaman = 0;
-        //DateTime date1 = new DateTime(2008, 3, 1, 7, 0, 0);
 
         public Catatan()
         {
             InitializeComponent();
-            //GetLahan();
             listLabelKomoditas = new List<Label>() { lblKomoditas1, lblKomoditas2, lblKomoditas3, lblKomoditas4 };
             listLabelLuasLahan = new List<Label>() { lblLuasLahan1, lblLuasTanam2, lblLuasTanam3, lblLuasTanam4 };
-            listLabelJumlahTanaman = new List<Label>() { lblJumlahTanaman1, lblJumlahTanaman2, lblJumlahTanaman3, lblJumlahTanaman4 };
+            listLabelHasilperHa = new List<Label>() { lblHasilperHa1, lblHasilperHa2, lblHasilperHa3, lblHasilperHa4 };
             listLabelTanggalTanam = new List<Label>() { lblTanggalTanam1, lblTanggalTanam2, lblTanggalTanam3, lblTanggalTanam4 };
+            listLabelEstimasiPanen = new List<Label>() { lblEstimasiPanen1, lblEstimasiPanen2, lblEstimasiPanen3, lblEstimasiPanen4 };
+            listLabelEstimasiKeuntungan = new List<Label>() { lblEstimasiKeuntungan1, lblEstimasiKeuntungan2, lblEstimasiKeuntungan3, lblEstimasiKeuntungan4 };
             listBtnEdit = new List<Button>() { btnEdit1, btnEdit2, btnEdit3, btnEdit4 };
             listBtnHapus = new List<Button>() { btnHapus1, btnHapus2, btnHapus3, btnHapus4 };
             listPb = new List<PictureBox>() { pb1, pb2, pb3, pb4 };
-
-            //AddNewLahan("Beras", 200, 100, date1, 200, 100);
-            //AddNewLahan("Beras", 100, 100, date1, 100, 100);
         }
-        public void AddNewLahan(int ID,string komoditas, decimal luasLahan, int jumlahTanaman, DateTime tanggal, decimal? hargaBibit, decimal? hargaPerawatan)
+        public void AddNewLahan(int ID,string komoditas, decimal luasLahan, decimal hasilperHa, DateTime tanggal, decimal hargaBibit, decimal hargaPerawatan,string lokasi)
         {
             using(var db = new LahanModel())
             {
@@ -54,29 +53,30 @@ namespace Bertani
                     Id = ID,
                     Komoditas = komoditas,
                     LuasLahan = luasLahan,
-                    JumlahTanaman = jumlahTanaman,
+                    HasilperHa = hasilperHa,
                     TanggalTanam = tanggal,
                     HargaBibit = hargaBibit,
-                    HargaPerawatan = hargaPerawatan
+                    HargaPerawatan = hargaPerawatan,
+                    Lokasi = lokasi
                 };
                 db.Lahans.Add(lahan);
                 db.SaveChanges();
                 MessageBox.Show("Lahan berhasil ditambah");
             }
             listID.Add(ID);
-            //MessageBox.Show(listLahan.Count.ToString());
-            KelasLahan newLahan = new KelasLahan(ID, komoditas, luasLahan, jumlahTanaman, tanggal, hargaBibit, hargaPerawatan);
+            KelasLahan newLahan = new KelasLahan(ID, komoditas, luasLahan, hasilperHa, tanggal, hargaBibit, hargaPerawatan, lokasi);
             listLahan.Add(newLahan);
             CheckLahan(halaman);
         }
-        public void EditLahan(int i,string komoditas, decimal luasLahan, int jumlahTanaman, DateTime tanggal, decimal? hargaBibit, decimal? hargaPerawatan)
+        public void EditLahan(int i,string komoditas, decimal luasLahan, decimal hasilperHa, DateTime tanggal, decimal hargaBibit, decimal hargaPerawatan,string lokasi)
         {
             listLahan[i].Komoditas = komoditas;
             listLahan[i].LuasLahan = luasLahan;
-            listLahan[i].JumlahTanaman = jumlahTanaman;
+            listLahan[i].HasilperHa = hasilperHa;
             listLahan[i].Tanggal = tanggal;
             listLahan[i].HargaBibit = hargaBibit;
             listLahan[i].HargaPerawatan = hargaPerawatan;
+            listLahan[i].Lokasi = lokasi;
             CheckLahan(halaman);
         }
         private void btnTambah_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace Bertani
                 foreach (var item in query)
                 {
                     listID.Add(item.Id);
-                    newLahan = new KelasLahan(item.Id, item.Komoditas, item.LuasLahan, item.JumlahTanaman, item.TanggalTanam, item.HargaBibit, item.HargaPerawatan);
+                    newLahan = new KelasLahan(item.Id, item.Komoditas, item.LuasLahan, item.HasilperHa, item.TanggalTanam, item.HargaBibit, item.HargaPerawatan,item.Lokasi);
                     listLahan.Add(newLahan);
                 }
             }
@@ -120,7 +120,7 @@ namespace Bertani
                     }
                 }
                 else
-                    returnID = listID.Max()+1;
+                    returnID = listID.Count;
             }
             return returnID;
         }
@@ -197,9 +197,11 @@ namespace Bertani
                         break;
                 }
                 listLabelKomoditas[nomor-i].Text = listLahan[nomor].Komoditas;
-                listLabelLuasLahan[nomor-i].Text = ": " + listLahan[nomor].LuasLahan.ToString();
-                listLabelJumlahTanaman[nomor-i].Text = ": " + listLahan[nomor].JumlahTanaman.ToString();
-                listLabelTanggalTanam[nomor-i].Text = ": " + listLahan[nomor].Tanggal.ToString();
+                listLabelLuasLahan[nomor-i].Text = ": " + listLahan[nomor].LuasLahan.ToString()+" Hektar";
+                listLabelHasilperHa[nomor-i].Text = ": " + listLahan[nomor].HasilperHa.ToString()+" Ton";
+                listLabelTanggalTanam[nomor-i].Text = ": " + listLahan[nomor].Tanggal.ToLongDateString();
+                listLabelEstimasiPanen[nomor - i].Text = ": " + listLahan[nomor].EstimasiPanen.ToLongDateString();
+                listLabelEstimasiKeuntungan[nomor - i].Text = ": Rp " + listLahan[nomor].EstimasiKeuntungan.ToString();
                 listBtnEdit[nomor-i].Enabled = true;
                 listBtnHapus[nomor-i].Enabled = true;
             }
@@ -208,8 +210,10 @@ namespace Bertani
                 listPb[nomor - i].Image = null;
                 listLabelKomoditas[nomor-i].Text = "-";
                 listLabelLuasLahan[nomor-i].Text = ": -";
-                listLabelJumlahTanaman[nomor-i].Text = ": -";
+                listLabelHasilperHa[nomor-i].Text = ": -";
                 listLabelTanggalTanam[nomor-i].Text = ": -";
+                listLabelEstimasiPanen[nomor - i].Text = ": -";
+                listLabelEstimasiKeuntungan[nomor - i].Text = ": -";
                 listBtnEdit[nomor-i].Enabled = false;
                 listBtnHapus[nomor-i].Enabled = false;
             }
@@ -229,9 +233,7 @@ namespace Bertani
         private void btnEdit1_Click(object sender, EventArgs e)
         {
             int i = listBtnEdit.IndexOf((Button)sender)+halaman*4;
-            //MessageBox.Show(i.ToString());
-            //MessageBox.Show(listLahan.Count.ToString());
-            LahankuTambahForm lahankuTambahForm = new LahankuTambahForm(i, listLahan[i].Komoditas, listLahan[i].LuasLahan, listLahan[i].JumlahTanaman, listLahan[i].Tanggal, listLahan[i].HargaBibit, listLahan[i].HargaPerawatan,this);
+            LahankuTambahForm lahankuTambahForm = new LahankuTambahForm(listLahan[i].LahanId, listLahan[i].Komoditas, listLahan[i].LuasLahan, listLahan[i].HasilperHa, listLahan[i].Tanggal, listLahan[i].HargaBibit, listLahan[i].HargaPerawatan,this);
             lahankuTambahForm.Show();
         }
 
@@ -240,7 +242,7 @@ namespace Bertani
             int i = listBtnHapus.IndexOf((Button)sender) + halaman * 4;
             using (var db = new LahanModel())
             {
-                db.Lahans.RemoveRange(db.Lahans.Where(item => item.Id == i));
+                db.Lahans.RemoveRange(db.Lahans.Where(item => item.Id == listLahan[i].LahanId));
                 db.SaveChanges();
             }
             listID.Remove(i);
